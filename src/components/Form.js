@@ -22,10 +22,10 @@ const Container = styled(Box)`
     padding: 10px 15px;
 `
 
-function Form({ handleAddTask, user }) {
+function Form({ handleAddTask }) {
     const [ content, setContent ] = useState('')
     const [ description, setDescription ] = useState('')
-    const [ category, setCategory ] = useState('food');
+    const [ category, setCategory ] = useState('');
 
     function handleSubmit(e) {
         e.preventDefault() 
@@ -36,7 +36,7 @@ function Form({ handleAddTask, user }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({  
-                user_id: user,
+                user_id: '',
                 title: content,
                 description: description,
                 category: category
@@ -87,10 +87,10 @@ function Form({ handleAddTask, user }) {
                             name="row-radio-buttons-group"
                             value={category}
                             onChange={handleCategoryChange}>
-                                <FormControlLabel control={<Radio size="small" value="House" />} label="House" />
-                                <FormControlLabel control={<Radio size="small" value="Park" />} label="Park" />
-                                <FormControlLabel control={<Radio size="small" value="Groceries" />} label="Groceries" />
-                                <FormControlLabel control={<Radio size="small" value="Pet" />} label="Pet" />
+                                <FormControlLabel control={<Radio size="small" value="food" />} label="food" />
+                                <FormControlLabel control={<Radio size="small" value="park" />} label="park" />
+                                <FormControlLabel control={<Radio size="small" value="cook" />} label="cook" />
+                                <FormControlLabel control={<Radio size="small" value="other" />} label="Other" />
                             </RadioGroup>
                         </FormControl>
                     </Box>
